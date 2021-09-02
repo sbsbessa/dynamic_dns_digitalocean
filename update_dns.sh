@@ -3,7 +3,7 @@
 id=$(echo ${3} | awk '{ print $1 }')
 
 
-CURRENT_IP=$(dig @resolver1.opendns.com A myip.opendns.com +short -4)
+CURRENT_IP=$(curl ifconfig.me)
 echo "Current IP: ${CURRENT_IP}"
 
 echo curl -X GET -H "Content-Type: application/json" -H "Authorization: Bearer ${id}" "https://api.digitalocean.com/v2/domains/${2}/records/${3}"
